@@ -7,6 +7,7 @@ const url = 'https://course-api.com/react-tours-project'
 function App() {
   const [loading, setLoading] = useState(true)
   const [tours, setTours] = useState([])
+
   const fetchTours = async () => {
     setLoading(true)
     try {
@@ -22,6 +23,7 @@ function App() {
   useEffect(() => {
     fetchTours()
   }, [])
+
   if (loading) {
     return (
       <main>
@@ -32,7 +34,7 @@ function App() {
 
   return (
     <main>
-      <Tours />
+      <Tours tours={tours} />
     </main>
   )
 }
